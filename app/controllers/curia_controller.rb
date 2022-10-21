@@ -1,0 +1,2 @@
+class CuriaController < ApplicationController
+end
