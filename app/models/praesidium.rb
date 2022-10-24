@@ -1,5 +1,5 @@
 class Praesidium < ApplicationRecord
-  belongs_to :curia
+  belongs_to :curia, counter_cache: true
 
   validates :name, presence: true
   validates :parish, presence: true
