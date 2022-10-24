@@ -1,0 +1,2 @@
+class Curia < ApplicationRecord
+end
