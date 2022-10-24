@@ -1,6 +1,6 @@
 require "test_helper"
 
-class CuriaControllerTest < ActionDispatch::IntegrationTest
+class PraesidiaControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

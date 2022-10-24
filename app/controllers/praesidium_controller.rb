@@ -1,2 +1,0 @@
-class PraesidiumController < ApplicationController
-end

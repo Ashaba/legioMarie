@@ -1,0 +1,2 @@
+class PraesidiaController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class CuriaeController < ApplicationController
+end
