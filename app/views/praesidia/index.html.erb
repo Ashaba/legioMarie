@@ -1,0 +1,12 @@
+<h1> Praesidia </h1>
+<ul>
+    <% @praesidia.each do |praesidium| %>
+    <li>
+        <%= link_to praesidium.name, praesidium %>
+    </li>
+    <% end %>
+</ul>
+
+<%= link_to "New Praesidium", new_praesidium_path %> <br>
+
+<%= link_to "Curiae", curiae_path %>

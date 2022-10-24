@@ -1,0 +1,17 @@
+<h1><%= @praesidium.name %></h1>
+
+<p><%= @praesidium.parish %></p>
+
+<p><%= @praesidium.curia.name %></p>
+
+<p><%= @praesidium.date_created %></p>
+
+<ul>
+    <li><%= link_to "Edit", edit_praesidium_path(@praesidium) %></li>
+    <li><%= link_to "Destroy", praesidium_path(@praesidium), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<%= link_to "View All", praesidia_path %>
