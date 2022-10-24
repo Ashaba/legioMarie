@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  parish: MyString
+  date_created: 2022-10-24
+  curia: one
+
+two:
+  name: MyString
+  parish: MyString
+  date_created: 2022-10-24
+  curia: two

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_24_081743) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_24_112401) do
   create_table "curiae", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -19,4 +19,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_081743) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "praesidia", force: :cascade do |t|
+    t.string "name"
+    t.string "parish"
+    t.date "date_created"
+    t.integer "curia_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["curia_id"], name: "index_praesidia_on_curia_id"
+  end
+
+  add_foreign_key "praesidia", "curiae"
 end
