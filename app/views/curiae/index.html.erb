@@ -1,0 +1,10 @@
+<h1> Curiae </h1>
+    <ul>
+        <% @curiae.each do |curia| %>
+        <li>
+            <%= link_to curia.name, curia %>
+        </li>
+        <% end %>
+    </ul>
+
+<%= link_to "Add new curia", new_curia_path %>

@@ -1,0 +1,15 @@
+<h1><%= @curia.name %></h1>
+
+<p><%= @curia.location %></p>
+
+<p><%= @curia.date_created %></p>
+
+<ul>
+    <li><%= link_to "Edit", edit_curia_path(@curia) %></li>
+    <li><%= link_to "Destroy", curia_path(@curia), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<%= link_to "View All", curiae_path %>
