@@ -1,0 +1,79 @@
+<%= form_with model: member do |form| %>
+  <div>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %>
+    <% member.errors.full_messages_for(:first_name).each do |message| %>
+
+    <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :last_name %><br>
+    <%= form.text_field :last_name %>
+    <% member.errors.full_messages_for(:last_name).each do |message| %>
+
+    <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :parish %><br>
+    <%= form.text_field :parish %>
+    <% member.errors.full_messages_for(:parish).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :mobile %><br>
+    <%= form.text_field :mobile %>
+    <% member.errors.full_messages_for(:mobile).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :birthday %><br>
+    <%= form.date_field :birthday %>
+    <% member.errors.full_messages_for(:birthday).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :date_joined %><br>
+    <%= form.date_field :date_joined %>
+    <% member.errors.full_messages_for(:date_joined).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :gender %><br>
+    <%= form.select :gender, ['male', 'female'], selected: 'male' %>
+    <% member.errors.full_messages_for(:gender).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :membership_type %><br>
+    <%= form.select :membership_type, ['active', 'praetorian', 'auxiliary', 'adjutorian'], selected: 'active' %>
+    <% member.errors.full_messages_for(:membership_type).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :praesidium %><br>
+    <%= form.collection_select(:praesidium_id, Praesidium.all, :id, :name) %>
+    <% member.errors.full_messages_for(:praesidium_id).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

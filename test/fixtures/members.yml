@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  parish: MyString
+  mobile: MyString
+  membership_type: MyString
+  birthday: 2022-10-25
+  date_joined: 2022-10-25
+  praesidium: one
+
+two:
+  first_name: MyString
+  last_name: MyString
+  parish: MyString
+  mobile: MyString
+  membership_type: MyString
+  birthday: 2022-10-25
+  date_joined: 2022-10-25
+  praesidium: two

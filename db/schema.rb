@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_25_064524) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_25_093209) do
   create_table "curiae", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -20,6 +20,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_064524) do
     t.integer "praesidia_count"
   end
 
+  create_table "members", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "parish"
+    t.string "mobile"
+    t.string "membership_type"
+    t.date "birthday"
+    t.date "date_joined"
+    t.integer "praesidium_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "gender"
+    t.index ["praesidium_id"], name: "index_members_on_praesidium_id"
+  end
+
   create_table "praesidia", force: :cascade do |t|
     t.string "name"
     t.string "parish"
@@ -27,8 +42,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_064524) do
     t.integer "curia_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "members_count"
     t.index ["curia_id"], name: "index_praesidia_on_curia_id"
   end
 
+  add_foreign_key "members", "praesidia"
   add_foreign_key "praesidia", "curiae"
 end

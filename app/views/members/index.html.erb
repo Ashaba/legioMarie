@@ -1,0 +1,14 @@
+<h1> Praesidia </h1>
+<ul>
+    <% @members.each do |member| %>
+    <li>
+        <%= link_to member.first_name, member %>
+    </li>
+    <% end %>
+</ul>
+
+<%= link_to "New Member", new_member_path %> <br>
+
+<%= link_to "Praesidia", praesidia_path %><br>
+
+<%= link_to "Curiae", curiae_path %>

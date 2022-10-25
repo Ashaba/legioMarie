@@ -1,0 +1,17 @@
+<h1><%= @member.first_name %></h1>
+
+<p><%= @member.last_name %></p>
+
+<p><%= @member.praesidium.name %></p>
+
+<p><%= @member.date_joined %></p>
+
+<ul>
+    <li><%= link_to "Edit", edit_member_path(@member) %></li>
+    <li><%= link_to "Destroy", member_path(@member), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<%= link_to "View All", members_path %>
