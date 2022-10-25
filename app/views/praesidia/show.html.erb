@@ -6,6 +6,8 @@
 
 <p><%= @praesidium.date_created %></p>
 
+<p>Total Members: <%= @praesidium.members.size %></p>
+
 <ul>
     <li><%= link_to "Edit", edit_praesidium_path(@praesidium) %></li>
     <li><%= link_to "Destroy", praesidium_path(@praesidium), data: {
