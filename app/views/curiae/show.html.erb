@@ -4,6 +4,8 @@
 
 <p><%= @curia.date_created %></p>
 
+<p>Number of Praesidia: <%= @curia.praesidia.size %> </p>
+
 <ul>
     <li><%= link_to "Edit", edit_curia_path(@curia) %></li>
     <li><%= link_to "Destroy", curia_path(@curia), data: {
