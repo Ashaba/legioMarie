@@ -1,0 +1,30 @@
+<h1> Birthdays </h1>
+<h2> Today's Birthdays </h2>
+<ul>
+  <% @birthdays_today.each do |member| %>
+    <li>
+      <%= link_to member.first_name, member %>
+    </li>
+    <li>
+      <%= link_to member.birthday, member %>
+    </li>
+  <% end %>
+</ul>
+
+<h2> Next week's Birthdays </h2>
+<ul>
+  <% @birthdays_coming_week.each do |member| %>
+    <li>
+      <%= link_to member.first_name, member %>
+    </li>
+    <li>
+      <%= link_to member.birthday, member %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Member", new_member_path %> <br>
+
+<%= link_to "Praesidia", praesidia_path %><br>
+
+<%= link_to "Curiae", curiae_path %>

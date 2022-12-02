@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   resources :praesidia
 
-  resources :members
+  resources :members do
+    get 'birthday', :on => :collection
+  end
 end

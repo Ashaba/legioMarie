@@ -72,3 +72,9 @@ group :test do
 end
 
 gem "ruby-lsp", "~> 0.3.4", :group => :development
+
+gem 'whenever', require: false
+
+gem "pg", "~> 1.4"
+
+gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'

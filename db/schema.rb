@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_10_25_093209) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "curiae", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -28,7 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_093209) do
     t.string "membership_type"
     t.date "birthday"
     t.date "date_joined"
-    t.integer "praesidium_id", null: false
+    t.bigint "praesidium_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "gender"
@@ -39,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_093209) do
     t.string "name"
     t.string "parish"
     t.date "date_created"
-    t.integer "curia_id", null: false
+    t.bigint "curia_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "members_count"
