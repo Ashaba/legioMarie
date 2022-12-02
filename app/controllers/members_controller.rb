@@ -10,7 +10,7 @@ class MembersController < ApplicationController
   def birthday
     @birthdays_today = Member.where('EXTRACT(month FROM birthday) = ? AND EXTRACT(day FROM birthday) = ?', Date.today.strftime("%m"), Date.today.strftime("%d"))
     next_week = Date.today + 7.day
-    @birthdays_coming_week = Member.where('EXTRACT(month FROM birthday) = ? AND EXTRACT(day FROM birthday) = ?', next_week.strftime("%m"), next_week.strftime("%d"))
+    @birthdays_coming_week = Member.where('EXTRACT(month FROM birthday) <= ? AND EXTRACT(day FROM birthday) <= ?', next_week.strftime("%m"), next_week.strftime("%d"))
   end
 
   def new

@@ -3,11 +3,10 @@
 <ul>
   <% @birthdays_today.each do |member| %>
     <li>
-      <%= link_to member.first_name, member %>
+      <%= link_to member.first_name + " " + member.last_name, member %>
     </li>
-    <li>
-      <%= link_to member.birthday, member %>
-    </li>
+    <% @date = member.birthday  %>
+    <%= @date.strftime("%B") + ", " + @date.strftime("%d") %>
   <% end %>
 </ul>
 
@@ -15,11 +14,10 @@
 <ul>
   <% @birthdays_coming_week.each do |member| %>
     <li>
-      <%= link_to member.first_name, member %>
+      <%= link_to member.first_name + " " + member.last_name, member %>
     </li>
-    <li>
-      <%= link_to member.birthday, member %>
-    </li>
+    <% @date = member.birthday  %>
+    <%= @date.strftime("%B") + ", " + @date.strftime("%d") %>
   <% end %>
 </ul>
 
