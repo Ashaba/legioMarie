@@ -8,9 +8,20 @@ class MembersController < ApplicationController
   end
 
   def birthday
-    @birthdays_today = Member.where('EXTRACT(month FROM birthday) = ? AND EXTRACT(day FROM birthday) = ?', Date.today.strftime("%m"), Date.today.strftime("%d"))
     next_week = Date.today + 7.day
-    @birthdays_coming_week = Member.where('EXTRACT(month FROM birthday) <= ? AND EXTRACT(day FROM birthday) <= ?', next_week.strftime("%m"), next_week.strftime("%d"))
+    today = Date.today
+    
+    @birthdays_today = Member.where(
+      'EXTRACT(month FROM birthday) = ? AND EXTRACT(day FROM birthday) = ?',
+      Date.today.strftime("%m"), Date.today.strftime("%d")
+    )
+    
+    logger.tagged("MEMBER_CONTROLLER") { logger.info "Next week comes at  #{next_week}" }
+    @birthdays_coming_week = Member.where(
+      'EXTRACT(month FROM birthday) <= ? AND EXTRACT(day FROM birthday) <= ? AND EXTRACT(day FROM birthday) >= ?
+       AND EXTRACT(month FROM birthday) >= ?', next_week.strftime("%m"),
+      next_week.strftime("%d"), today.strftime("%d"), today.strftime("%m")
+    )
   end
 
   def new
