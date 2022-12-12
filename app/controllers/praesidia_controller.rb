@@ -1,10 +1,18 @@
 class PraesidiaController < ApplicationController
   def index
     @praesidia = Praesidium.all
+    respond_to do |format|
+      format.json { render json: @praesidia }
+      format.html
+    end
   end
 
   def show
     @praesidium = Praesidium.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @praesidium }
+      format.html
+    end
   end
 
   def new

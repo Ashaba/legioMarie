@@ -31,6 +31,11 @@ class MembersController < ApplicationController
        AND EXTRACT(month FROM birthday) >= ?', next_week.strftime("%m"),
       next_week.strftime("%d"), today.strftime("%d"), today.strftime("%m")
     )
+
+    respond_to do |format|
+      format.json { render :json => {:today => @birthdays_today, :next_week => @birthdays_coming_week } }
+      format.html
+    end
   end
 
   def new
@@ -64,7 +69,7 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
     @member.destroy
 
-    redirect_to praesidia_path, status: :see_other
+    redirect_to members_path, status: :see_other
   end
 
   private

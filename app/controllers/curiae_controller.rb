@@ -1,10 +1,19 @@
 class CuriaeController < ApplicationController
+  
   def index
     @curiae = Curia.all
+    respond_to do |format|
+      format.json { render json: @curiae }
+      format.html
+    end
   end
 
   def show
     @curia = Curia.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @curia }
+      format.html
+    end
   end
 
   def new
