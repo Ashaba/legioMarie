@@ -1,10 +1,19 @@
 class MembersController < ApplicationController
   def index
     @members = Member.all
+    
+    respond_to do |format|
+      format.json { render json: @members }
+      format.html
+    end
   end
 
   def show
     @member = Member.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @member }
+      format.html
+    end
   end
 
   def birthday
@@ -16,7 +25,7 @@ class MembersController < ApplicationController
       Date.today.strftime("%m"), Date.today.strftime("%d")
     )
     
-    logger.tagged("MEMBER_CONTROLLER") { logger.info "Next week comes at  #{next_week}" }
+    logger.tagged("MEMBERS") { logger.info "Next week comes at  #{next_week}" }
     @birthdays_coming_week = Member.where(
       'EXTRACT(month FROM birthday) <= ? AND EXTRACT(day FROM birthday) <= ? AND EXTRACT(day FROM birthday) >= ?
        AND EXTRACT(month FROM birthday) >= ?', next_week.strftime("%m"),
@@ -30,6 +39,7 @@ class MembersController < ApplicationController
 
   def create
     @member = Member.new(member_params)
+    logger.tagged("MEMBERS") { logger.info "New User  #{@member}" }
     if @member.save
       redirect_to @member
     else
